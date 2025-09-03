@@ -227,3 +227,78 @@ footer a.call {
     display: none;
   }
 }
+/* Make footer fixed at bottom */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8); /* slightly darker for contrast */
+  padding: 10px 0;
+  text-align: center;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 0; /* ignore margin-top when fixed */
+}
+
+/* Add bottom padding to main so content not covered by footer */
+main {
+  padding-bottom: 70px; /* approximately footer height */
+}
+
+/* Style footer links as horizontal buttons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-social a {
+  flex: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.footer-social .whatsapp {
+  background: #25d366;
+}
+.footer-social .call {
+  background: #0077cc;
+}
+.footer-social .instagram {
+  background: #d6249f;
+}
+
+.footer-social a:hover {
+  filter: brightness(0.85);
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* Responsive fallback - stack buttons vertically on small screens */
+@media (max-width: 600px) {
+  .footer-social {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
