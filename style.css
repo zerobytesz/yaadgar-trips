@@ -1,0 +1,223 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: url("bg.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Header with 3 sections */
+header {
+  background: #0077cc;
+  color: white;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.header-left {
+  text-align: left;
+}
+.header-logo img {
+  height: 120px;
+  max-width: 200px;
+}
+.header-right {
+  text-align: right;
+}
+.header-right a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Search bar and results */
+.search-container {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+}
+#searchBar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+#results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 100;
+}
+#results li {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+}
+#results li:hover {
+  background: #f0f0f0;
+}
+
+/* Frequently visited itineraries */
+.frequent-itineraries {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  text-align: center;
+}
+.frequent-itineraries h2 {
+  color: #ffd700;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+.frequent-itineraries ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.frequent-itineraries li {
+  padding: 8px;
+  margin: 6px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.frequent-itineraries li:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* About Us page styling */
+.about-page {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  text-align: left;
+  line-height: 1.6;
+}
+.about-page h1,
+.about-page h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+.about-page p,
+.about-page li {
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+/* Footer styling */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+footer a {
+  display: block;
+  margin: 5px 0;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+footer a.whatsapp {
+  background: #25d366;
+  color: white;
+}
+footer a.call {
+  background: #0077cc;
+  color: white;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-top: auto;
+}
+
+.footer-social a {
+  flex: 1 1 0;
+  text-align: center;
+  margin: 0;
+  text-decoration: none;
+  padding: 10px 0;
+  font-weight: bold;
+  border-radius: 0;
+  color: #fff;
+}
+
+.footer-social .whatsapp {
+  background: #25d366;
+}
+.footer-social .call {
+  background: #0077cc;
+}
+.footer-social .instagram {
+  background: #d6249f;
+}
+
+.footer-icon {
+  vertical-align: middle;
+  margin-right: 6px;
+  width: 24px;
+  height: 24px;
+}
+
+.footer-divider {
+  display: inline-block;
+  width: 2px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 0.5vw;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .footer-social {
+    flex-direction: column;
+    gap: 0;
+  }
+  .footer-divider {
+    display: none;
+  }
+}
