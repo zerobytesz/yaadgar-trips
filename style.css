@@ -53,6 +53,7 @@ main {
   flex: 1 0 auto; /* Grow and shrink but never less than content */
   padding: 2rem;
   text-align: center;
+  padding-bottom: 70px; /* to avoid overlap with fixed footer */
 }
 
 /* Search Bar and Results */
@@ -144,161 +145,151 @@ main {
   margin-bottom: 12px;
 }
 
-/* Footer Styling */
-footer {
-  position: relative; /* Important: natural flow, not sticky/fixed */
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1rem;
-  text-align: center;
-  margin-top: auto;
-  z-index: 1;
-}
-
-footer a {
-  display: block;
-  margin: 5px 0;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-footer a.whatsapp {
-  background: #25d366;
-  color: white;
-}
-footer a.call {
-  background: #0077cc;
-  color: white;
-}
-
-.footer-social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  margin-top: auto;
-}
-
-.footer-social a {
-  flex: 1 1 0;
-  text-align: center;
-  margin: 0;
-  text-decoration: none;
-  padding: 10px 0;
-  font-weight: bold;
-  border-radius: 0;
-  color: #fff;
-}
-
-.footer-social .whatsapp {
-  background: #25d366;
-}
-.footer-social .call {
-  background: #0077cc;
-}
-.footer-social .instagram {
-  background: #d6249f;
-}
-
-.footer-icon {
-  vertical-align: middle;
-  margin-right: 6px;
-  width: 24px;
-  height: 24px;
-}
-
-.footer-divider {
-  display: inline-block;
-  width: 2px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 0 0.5vw;
-  border-radius: 2px;
-}
-
-@media (max-width: 600px) {
-  .footer-social {
-    flex-direction: column;
-    gap: 0;
-  }
-  .footer-divider {
-    display: none;
-  }
-}
-/* Make footer fixed at bottom */
+/* Footer Styling - fixed at bottom */
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8); /* slightly darker for contrast */
+  background: rgba(0, 0, 0, 0.8);
   padding: 10px 0;
   text-align: center;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
-  margin-top: 0; /* ignore margin-top when fixed */
+  margin-top: 0;
 }
 
-/* Add bottom padding to main so content not covered by footer */
-main {
-  padding-bottom: 70px; /* approximately footer height */
-}
-
-/* Style footer links as horizontal buttons */
+/* Footer container */
 .footer-social {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
+  gap: 0;
   margin: 0 auto;
 }
 
+/* Footer buttons equally wide */
 .footer-social a {
-  flex: none;
-  padding: 10px 15px;
+  flex: 1 1 0;
+  padding: 10px 0;
   border-radius: 6px;
   font-weight: bold;
-  color: white;
+  color: #fff;
   text-decoration: none;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
   transition: background-color 0.3s;
+  border: none;
+  margin: 0;
 }
 
-.footer-social .whatsapp {
+/* Background colors */
+.footer-social a.whatsapp {
   background: #25d366;
 }
-.footer-social .call {
+.footer-social a.call {
   background: #0077cc;
 }
-.footer-social .instagram {
+.footer-social a.instagram {
+  background: #d6249f;
+}
+/* Footer fixed at bottom */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw; /* full viewport width explicitly */
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0; /* remove vertical padding to avoid shrinking content */
+  z-index: 9999;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer social container fills footer */
+.footer-social {
+  display: flex;
+  width: 100%;
+  max-width: 100vw; /* ensure full width */
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+/* Each link takes equal width and full height */
+.footer-social a {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 15px 0;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 0;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+/* Colored backgrounds */
+.footer-social a.whatsapp {
+  background: #25d366;
+}
+.footer-social a.call {
+  background: #0077cc;
+}
+.footer-social a.instagram {
   background: #d6249f;
 }
 
+/* Hover effect */
 .footer-social a:hover {
   filter: brightness(0.85);
 }
 
+/* Instagram icon styling */
 .footer-icon {
   width: 20px;
   height: 20px;
   vertical-align: middle;
 }
 
-/* Responsive fallback - stack buttons vertically on small screens */
+/* Remove default padding/margin on footer and main */
+main {
+  padding-bottom: 60px; /* give space for footer */
+}
+
+/* Responsive: stack vertically with spacing */
 @media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    padding: 10px 0;
+    height: auto;
+    width: 100%;
+    bottom: 0;
+  }
   .footer-social {
     flex-direction: column;
     gap: 10px;
+    max-width: 100vw;
+  }
+  .footer-social a {
+    flex-grow: 0;
+    padding: 12px 0;
   }
 }
